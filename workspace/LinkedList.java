@@ -106,4 +106,38 @@ public class LinkedList{
   public void clear(){
     head = null;
   }
+
+  //precondition: the list has been initialized
+  //postcondition: the list will be reversed
+  public void reverse(){
+    ListNode previous = null;
+    ListNode current = head;
+    while(current != null){
+      ListNode next = current.getNext();
+      current.setNext(previous);
+      previous = current;
+      current = next;
+    }
+    head = previous;
+  }
+  /* preccondition: n will never be larger than the number of elements in the list
+  the list will always contain at least one element
+  */
+  //postcondition: the list will be reversed in chunks of n
+  public void nReverse(int n){
+    ListNode previous = null;
+    ListNode current = head;
+    ListNode next = current.getNext();
+    ListNode tail = head;
+    int i = 0;
+    while (i < n && current != null) {
+      next = current.getNext();
+      current.setNext(previous);
+      previous = current;
+      current = next;
+      i++;
+    }
+    tail.setNext(current);
+    head = previous;
+  }
 }

@@ -19,6 +19,10 @@ public class Main{
           {
             System.out.println(list.addAValue(input.substring(4)).getValue());
           }
+          else if(input.equals("reverse"))
+          {
+            list.reverse();
+          }
           else if(input.equals("show"))
           {
             System.out.println(list.showValues());
@@ -26,6 +30,9 @@ public class Main{
           else if(input.length() > 7 && input.substring(0, 6).equals("remove")){
               System.out.println("removing "+input.substring(7));
               System.out.println(list.deleteAValue(input.substring(7)).getValue());
+          }
+          else if(input.length() > 8 && input.substring(0, 8).equals("NReverse")){
+              list.nReverse(Integer.parseInt(input.substring(9)));
           }
           else if(input.equals("clear"))
           {
